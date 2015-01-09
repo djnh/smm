@@ -68,7 +68,7 @@ class SportsMeetingController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'SportsMeeting.label', default: 'SportsMeeting'), sportsMeetingInstance.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'sportsMeeting.label', default: 'SportsMeeting'), sportsMeetingInstance.id])
                 redirect (action:'index')
             }
             '*'{ respond sportsMeetingInstance, [status: OK] }
