@@ -58,7 +58,7 @@
 									
 									<g:sortableColumn property="endTime" title="${message(code: 'sportsMeeting.endTime.label', default: 'End Time')}" />
 									
-									<th>${message(code: 'sportsMeeting.activate.label', default: 'Id')}</th>
+									<th>${message(code: 'sportsMeeting.activate.label', default: 'Activate')}</th>
 									
 									<th>${message(code: 'default.actions.label', default: 'Actions')}</th>
 	                        </tr>

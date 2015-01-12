@@ -31,28 +31,31 @@
 	                    <table class="table table-striped table-bordered responsive">
 	                        <thead>
 	                        <tr>
-	                            
-									<g:sortableColumn property="loginName" title="${message(code: 'systemUser.loginName.label', default: 'Login Name')}" />
-								
-									<g:sortableColumn property="password" title="${message(code: 'systemUser.password.label', default: 'Password')}" />
-								
-									<th><g:message code="systemUser.sportsMeeting.label" default="Sports Meeting" /></th>
-								
-									<th><g:message code="systemUser.systemRole.label" default="System Role" /></th>
-								
+	                        	<th>${message(code: 'sportsMeeting.id.label', default: 'Id')}</th>
+	                        	
+	                            <th><g:message code="systemUser.loginName.label" default="Login Name" /></th>
+	                            	
+								<th><g:message code="systemUser.systemRole.label" default="System Role" /></th>
+									
+								<th>${message(code: 'default.actions.label', default: 'Actions')}</th>
 	                        </tr>
 	                        </thead>
 	                        <tbody>
 	                        <g:each in="${systemUserInstanceList}" status="i" var="systemUserInstance">
 								<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 								
-									<td><g:link action="show" id="${systemUserInstance.id}">${fieldValue(bean: systemUserInstance, field: "loginName")}</g:link></td>
+									<td>${fieldValue(bean: systemUserInstance, field: "id")}</td>
 								
-									<td>${fieldValue(bean: systemUserInstance, field: "password")}</td>
+									<td>${fieldValue(bean: systemUserInstance, field: "loginName")}</td>
 								
-									<td>${fieldValue(bean: systemUserInstance, field: "sportsMeeting")}</td>
-								
-									<td>${fieldValue(bean: systemUserInstance, field: "systemRole")}</td>
+									<td>${ systemUserInstance.systemRole.name}</td>
+									
+									<td>
+										<g:form role="form" url="[resource:systemUserInstance, action:'delete']" method="DELETE">
+								            <g:link class="btn btn-info" action="edit" resource="${systemUserInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+							        		<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+							        	</g:form>
+									</td>
 								
 								</tr>
 							</g:each>

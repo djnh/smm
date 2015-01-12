@@ -1,49 +1,60 @@
 <%@ page import="com.xinnuo.smm.SystemUser" %>
 
-
-
-<div class="form-group ${hasErrors(bean: systemUserInstance, field: 'loginName', 'error')} required">
-	<label for="loginName">
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("form[role='form']").submit(function(){
+		var password = $("#password").val();
+		var repassword = $("#repassword").val();
+		if(password != repassword){
+			alert("两次输入的密码不符");
+			return false;
+		}
+	});
+	
+})
+</script>
+<div class="form-group">
+<div class="input-group ${hasErrors(bean: systemUserInstance, field: 'loginName', 'error')} required">
+	<span class="input-group-addon">
 		<g:message code="systemUser.loginName.label" default="Login Name" />
 		<span class="required-indicator">*</span>
-	</label>
+	</span>
 	<g:textField name="loginName" placeholder="${message(code:'systemUser.loginName.label', default:'Login Name')}" maxlength="50" required="" value="${systemUserInstance?.loginName}" class="form-control"/>
 
 </div>
+</div>
 
-<div class="form-group ${hasErrors(bean: systemUserInstance, field: 'password', 'error')} required">
-	<label for="password">
+<div class="form-group">
+<div class="input-group ${hasErrors(bean: systemUserInstance, field: 'password', 'error')} required">
+	<span class="input-group-addon">
 		<g:message code="systemUser.password.label" default="Password" />
 		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="password" placeholder="${message(code:'systemUser.password.label', default:'Password')}" maxlength="50" required="" value="${systemUserInstance?.password}" class="form-control"/>
+	</span>
+	<g:passwordField id="password" name="password" placeholder="${message(code:'systemUser.password.label', default:'Password')}" maxlength="50" required="" value="${systemUserInstance?.password}" class="form-control"/>
 
 </div>
-
-<div class="form-group ${hasErrors(bean: systemUserInstance, field: 'databaselogs', 'error')} ">
-	<label for="databaselogs">
-		<g:message code="systemUser.databaselogs.label" default="Databaselogs" />
-		
-	</label>
-	<g:select name="databaselogs" from="${com.xinnuo.smm.DatabaseLog.list()}" multiple="multiple" optionKey="id" size="5" value="${systemUserInstance?.databaselogs*.id}" class="many-to-many"/>
-
 </div>
 
-<div class="form-group ${hasErrors(bean: systemUserInstance, field: 'sportsMeeting', 'error')} required">
-	<label for="sportsMeeting">
-		<g:message code="systemUser.sportsMeeting.label" default="Sports Meeting" />
+<div class="form-group">
+<div class="input-group ${hasErrors(bean: systemUserInstance, field: 'repassword', 'error')} required">
+	<span class="input-group-addon">
+		<g:message code="systemUser.repassword.label" default="Repassword" />
 		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="sportsMeeting" name="sportsMeeting.id" from="${com.xinnuo.smm.SportsMeeting.list()}" optionKey="id" required="" value="${systemUserInstance?.sportsMeeting?.id}" class="many-to-one"/>
+	</span>
+	<g:passwordField id="repassword" name="repassword" placeholder="${message(code:'systemUser.repassword.label', default:'Repassword')}" maxlength="50" required="" value="${systemUserInstance?.password}" class="form-control"/>
 
 </div>
+</div>
 
-<div class="form-group ${hasErrors(bean: systemUserInstance, field: 'systemRole', 'error')} required">
-	<label for="systemRole">
+<div class="form-group">
+<div class="input-group ${hasErrors(bean: systemUserInstance, field: 'systemRole', 'error')} required">
+	<span class="input-group-addon">
 		<g:message code="systemUser.systemRole.label" default="System Role" />
 		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="systemRole" name="systemRole.id" from="${com.xinnuo.smm.SystemRole.list()}" optionKey="id" optionValue="name" required="" value="${systemUserInstance?.systemRole?.id}" class="many-to-one"/>
+	</span>
+	<g:select id="systemRole" name="systemRole.id" from="${com.xinnuo.smm.SystemRole.list()}" optionKey="id" optionValue="name" required="" value="${systemUserInstance?.systemRole?.id}" class="form-control"/>
 
+</div>
 </div>
 

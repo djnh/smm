@@ -40,7 +40,7 @@
 						<g:form role="form" url="[resource:systemUserInstance, action:'update']" method="PUT" >
 		                    <g:hiddenField name="version" value="${systemUserInstance?.version}" />
 		                    <g:render template="form"/>
-		                    <g:actionSubmit class="btn btn-default" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+		                    <g:actionSubmit class="btn btn-primary" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 		                </g:form>
 		            </div>
 		        </div>

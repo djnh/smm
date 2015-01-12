@@ -27,13 +27,15 @@
 		            	<div class="alert alert-info">${flash.message}</div>
 		            	</g:if>
 		            	<g:hasErrors bean="${systemUserInstance}">
+		            	<div class="alert alert-danger">
 						<ul class="errors" role="alert">
 							<g:eachError bean="${systemUserInstance}" var="error">
 							<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
 							</g:eachError>
 						</ul>
+						</div>
 						</g:hasErrors>
-						<g:form role="form" url="[resource:systemUserInstance, action:'save']" >
+						<g:form role="form" url="[resource:systemUserInstance, action:'save']">
 		                    <g:render template="form"/>
 		                    <g:submitButton name="create" class="btn btn-default" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 		                </g:form>

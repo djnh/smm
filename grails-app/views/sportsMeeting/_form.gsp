@@ -1,5 +1,4 @@
 <%@ page import="com.xinnuo.smm.SportsMeeting" %>
-
 <script type="text/javascript">
     $(document).ready(function()
     {

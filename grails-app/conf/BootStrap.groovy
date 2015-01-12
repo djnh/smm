@@ -1,8 +1,7 @@
-import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler.EnterpriseConcurrentTriggerScheduler;
-
 import com.xinnuo.smm.Game
 import com.xinnuo.smm.SportsMeeting
 import com.xinnuo.smm.SystemRole
+import com.xinnuo.smm.SystemUser
 
 class BootStrap {
 
@@ -25,6 +24,15 @@ class BootStrap {
 		
 		def sportsMeeting = new SportsMeeting(name: "哈尔滨工程大学田径运动会", times: 36, entrepreneurOrg: "哈尔滨工程大学体育运动委员会", startTime: Date.parse("yyyyMMdd", "20100520"), endTime: Date.parse("yyyyMMdd", "20100521"), activate: 1, heldLocation: "哈尔滨工程大学北体育场", startSignUp: 1)
 		sportsMeeting.save()
+		
+		def xinnuo = new SystemUser(loginName:"xinnuo",password: "xinnuo", systemRole: adminRole, sportsMeeting: sportsMeeting)
+		xinnuo.save()
+		
+		def ts01 = new SystemUser(loginName:"ts01",password: "1234", systemRole: fieldInputRole, sportsMeeting: sportsMeeting)
+		ts01.save()
+		
+		def js01 = new SystemUser(loginName:"js01",password: "1234", systemRole: trackInputRole, sportsMeeting: sportsMeeting)
+		js01.save()
     }
     def destroy = {
     }

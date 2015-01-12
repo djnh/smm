@@ -29,6 +29,10 @@ class SystemUserController {
             notFound()
             return
         }
+		
+		if (!(systemUserInstance.password == systemUserInstance.repassword)){
+			systemUserInstance.errors.reject("password not matched", "两次输入的密码不符")
+		}
 
         if (systemUserInstance.hasErrors()) {
             respond systemUserInstance.errors, view:'create'
@@ -40,7 +44,7 @@ class SystemUserController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'systemUser.label', default: 'SystemUser'), systemUserInstance.id])
-                redirect systemUserInstance
+                redirect (action:'index')
             }
             '*' { respond systemUserInstance, [status: CREATED] }
         }
@@ -56,6 +60,10 @@ class SystemUserController {
             notFound()
             return
         }
+		
+		if (!(systemUserInstance.password == systemUserInstance.repassword)){
+			systemUserInstance.errors.reject("password not matched", "两次输入的密码不符")
+		}
 
         if (systemUserInstance.hasErrors()) {
             respond systemUserInstance.errors, view:'edit'
@@ -67,7 +75,7 @@ class SystemUserController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'SystemUser.label', default: 'SystemUser'), systemUserInstance.id])
-                redirect systemUserInstance
+                redirect (action:'index')
             }
             '*'{ respond systemUserInstance, [status: OK] }
         }
@@ -85,7 +93,7 @@ class SystemUserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'SystemUser.label', default: 'SystemUser'), systemUserInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'systemUser.label', default: 'SystemUser'), systemUserInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
