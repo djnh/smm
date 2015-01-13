@@ -26,15 +26,15 @@
 	                </div>
 	                <div class="box-content">
 	                	<div class="alert alert-info">
-	                	<g:if test="${ActivateAportsMeeting != null}">
-						<p>当前被激活的第 ${ActivateAportsMeeting.times} 届 ${ActivateAportsMeeting.name} </p>
+	                	<g:if test="${activateSportsMeeting != null}">
+						<p>当前被激活的第 ${activateSportsMeeting.times} 届 ${activateSportsMeeting.name} </p>
 						<p>您可以点击此处 <g:link class="create" action="create">添加</g:link> 一届运动会，新添加的运动会将会被自动激活。 </p>
 						<p>您也可以在下面的列表中修改、删除、激活或关闭某一届已有的运动会。 </p>
 						<p>当您激活某一届运动会时，当前被激活的运动会就会自动关闭。 </p>
 						<p>运动会在关闭后，不能对其进行任何操作，关联到这届运动会的帐号也将被停用。 </p>
 						<p>在管理某届运动会之前，请先将其激活。</p>
 						</g:if>
-						<g:if test="${ActivateAportsMeeting == null}">
+						<g:if test="${activateSportsMeeting == null}">
 						<p>当前没有可用的运动会，您可以点击此处 <g:link class="create" action="create">添加</g:link> 一届运动会。</p>
 						<p>新添加的运动会将被自动激活，然后你可以对其进行操作操作。 </p>
 						</g:if>

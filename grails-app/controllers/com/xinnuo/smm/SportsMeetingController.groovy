@@ -12,7 +12,7 @@ class SportsMeetingController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond SportsMeeting.list(params), model:[sportsMeetingInstanceCount: SportsMeeting.count(), ActivateAportsMeeting: SportsMeeting.findByActivate("1")]
+        respond SportsMeeting.list(params), model:[sportsMeetingInstanceCount: SportsMeeting.count(), activateSportsMeeting: SportsMeeting.findByActivate(true)]
     }
 
     def show(SportsMeeting sportsMeetingInstance) {

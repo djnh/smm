@@ -31,7 +31,7 @@ $(document).ready(function()
 		<g:message code="systemUser.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</span>
-	<g:passwordField id="password" name="password" placeholder="${message(code:'systemUser.password.label', default:'Password')}" maxlength="50" required="" value="${systemUserInstance?.password}" class="form-control"/>
+	<g:passwordField id="password" name="password" placeholder="${message(code:'systemUser.password.label', default:'Password')}" maxlength="50" required="" value="" class="form-control"/>
 
 </div>
 </div>
@@ -42,7 +42,7 @@ $(document).ready(function()
 		<g:message code="systemUser.repassword.label" default="Repassword" />
 		<span class="required-indicator">*</span>
 	</span>
-	<g:passwordField id="repassword" name="repassword" placeholder="${message(code:'systemUser.repassword.label', default:'Repassword')}" maxlength="50" required="" value="${systemUserInstance?.password}" class="form-control"/>
+	<g:passwordField id="repassword" name="repassword" placeholder="${message(code:'systemUser.repassword.label', default:'Repassword')}" maxlength="50" required="" value="" class="form-control"/>
 
 </div>
 </div>

@@ -17,8 +17,8 @@ class SportsMeeting {
 	Integer pluralismMax
 	Integer singleItemMin
 	String signUpRemark
-	boolean activate = true
-	boolean startSignUp = true
+	Boolean activate = true
+	Boolean startSignUp = true
 
 	static mapping = {
 	}

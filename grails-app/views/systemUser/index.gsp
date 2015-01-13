@@ -20,6 +20,14 @@
 		</div>
 		<div id="list-systemUser" class="row">
 	        <div class="box col-md-12">
+	        	<div class="alert alert-info">
+                	<g:if test="${activateSportsMeeting != null}">
+					<p>当前被激活的是第  ${activateSportsMeeting.times} 届${activateSportsMeeting.name}，您可以管理与该运动会相关的帐号。 </p>
+					</g:if>
+					<g:if test="${activateSportsMeeting == null}">
+					<p>当前没有被激活的运动会。您可以点击此处<g:link class="create" controller="sportsMeeting" action="create">添加</g:link>一届运动会。 </p>
+					</g:if>
+				</div>
 	            <div class="box-inner">
 	                <div data-original-title="" class="box-header well">
 	                    <h2><g:message code="default.list.label" args="[entityName]" /></h2>

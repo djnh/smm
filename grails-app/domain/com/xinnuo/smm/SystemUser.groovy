@@ -7,7 +7,6 @@ class SystemUser {
 	
 	String loginName
 	String password
-	String repassword
 	SystemRole systemRole
 	SportsMeeting sportsMeeting
 
@@ -20,9 +19,7 @@ class SystemUser {
 	static constraints = {
 		loginName maxSize: 50
 		password maxSize: 50
-		repassword bindable: true
 		sportsMeeting nullable: true
 	}
 	
-	static transients = ['repassword']
 }

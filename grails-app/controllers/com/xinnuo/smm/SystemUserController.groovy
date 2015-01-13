@@ -12,7 +12,7 @@ class SystemUserController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond SystemUser.list(params), model:[systemUserInstanceCount: SystemUser.count()]
+        respond SystemUser.list(params), model:[systemUserInstanceCount: SystemUser.count(), activateSportsMeeting: SportsMeeting.findByActivate(true)]
     }
 
     def show(SystemUser systemUserInstance) {
@@ -20,7 +20,7 @@ class SystemUserController {
     }
 
     def create() {
-        respond new SystemUser(params)
+        respond new SystemUser(params), model:[activateSportsMeeting: SportsMeeting.findByActivate(true)]
     }
 
     @Transactional
@@ -30,7 +30,7 @@ class SystemUserController {
             return
         }
 		
-		if (!(systemUserInstance.password == systemUserInstance.repassword)){
+		if (!(params.password == params.repassword)){
 			systemUserInstance.errors.reject("password not matched", "两次输入的密码不符")
 		}
 
@@ -61,7 +61,7 @@ class SystemUserController {
             return
         }
 		
-		if (!(systemUserInstance.password == systemUserInstance.repassword)){
+		if (!(params.password == params.repassword)){
 			systemUserInstance.errors.reject("password not matched", "两次输入的密码不符")
 		}
 

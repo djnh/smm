@@ -22,10 +22,10 @@ class BootStrap {
 		def allRole = new SystemRole(name:"全能裁判员",privilege:"00111")
 		allRole.save()
 		
-		def sportsMeeting = new SportsMeeting(name: "哈尔滨工程大学田径运动会", times: 36, entrepreneurOrg: "哈尔滨工程大学体育运动委员会", startTime: Date.parse("yyyyMMdd", "20100520"), endTime: Date.parse("yyyyMMdd", "20100521"), activate: 1, heldLocation: "哈尔滨工程大学北体育场", startSignUp: 1)
+		def sportsMeeting = new SportsMeeting(name: "哈尔滨工程大学田径运动会", times: 36, entrepreneurOrg: "哈尔滨工程大学体育运动委员会", startTime: Date.parse("yyyyMMdd", "20100520"), endTime: Date.parse("yyyyMMdd", "20100521"), heldLocation: "哈尔滨工程大学北体育场")
 		sportsMeeting.save()
 		
-		def xinnuo = new SystemUser(loginName:"xinnuo",password: "xinnuo", systemRole: adminRole, sportsMeeting: sportsMeeting)
+		def xinnuo = new SystemUser(loginName:"xinnuo",password: "xinnuo", systemRole: adminRole)
 		xinnuo.save()
 		
 		def ts01 = new SystemUser(loginName:"ts01",password: "1234", systemRole: fieldInputRole, sportsMeeting: sportsMeeting)
