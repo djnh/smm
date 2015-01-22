@@ -1,4 +1,5 @@
 import com.xinnuo.smm.Game
+import com.xinnuo.smm.GroupSex
 import com.xinnuo.smm.SportsMeeting
 import com.xinnuo.smm.SystemRole
 import com.xinnuo.smm.SystemUser
@@ -33,6 +34,12 @@ class BootStrap {
 		
 		def js01 = new SystemUser(loginName:"js01",password: "1234", systemRole: trackInputRole, sportsMeeting: sportsMeeting)
 		js01.save()
+		
+		def mailGroup = new GroupSex(name: "男子组")
+		mailGroup.save()
+		
+		def femailGroup = new GroupSex(name: "女子组")
+		femailGroup.save()
     }
     def destroy = {
     }

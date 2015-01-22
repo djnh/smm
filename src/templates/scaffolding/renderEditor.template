@@ -101,11 +101,12 @@
  			sb << ' name="' << property.name << '.id"'
  			sb << ' from="${' << property.type.name << '.list()}"'
  			sb << ' optionKey="id"'
+ 			sb << ' optionValue="name"'
 			if (isRequired()) sb << ' required=""'
  			sb << ' value="${' << "${domainInstance}?.${property.name}" << '?.id}"'
  			sb << ' class="many-to-one"'
  			sb << renderNoSelection(property)
- 			sb << '/>'
+ 			sb << ' class="form-control" />'
 			sb as String
         }
     }
