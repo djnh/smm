@@ -125,10 +125,12 @@
             sb << ' from="${' << cls.name << '.list()}"'
             sb << ' multiple="multiple"'
             sb << ' optionKey="id"'
+            sb << ' optionValue="name"'
             sb << ' size="5"'
             if (isRequired()) sb << ' required=""'
             sb << ' value="${' << "${domainInstance}?.${property.name}" << '*.id}"'
-            sb << ' class="many-to-many"'
+            sb << ' class="form-control"'
+            sb << ' data-rel="chosen"'
             sb << '/>'
             sb as String
 
@@ -188,6 +190,7 @@
 					sb << ' value="${' << domainInstance << '.' << property.name << '}"'
 				}
 				if (isRequired()) sb << ' required=""'
+				sb << ' class="form-control"'
 				sb << '/>'
             }
 			sb as String

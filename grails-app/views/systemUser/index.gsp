@@ -61,7 +61,7 @@
 									<td>
 										<g:form role="form" url="[resource:systemUserInstance, action:'delete']" method="DELETE">
 								            <g:link class="btn btn-info" action="edit" resource="${systemUserInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-							        		<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+							        		<g:actionSubmit class="btn btn-danger" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 							        	</g:form>
 									</td>
 								

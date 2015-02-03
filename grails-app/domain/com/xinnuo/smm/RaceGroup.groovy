@@ -11,7 +11,7 @@ class RaceGroup {
 	}
 
 	static constraints = {
-		name maxSize: 50
+		name maxSize: 50 , sortable: false
 		remark nullable: true
 	}
 }

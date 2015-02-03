@@ -1,9 +1,9 @@
 package com.xinnuo.smm
 
-class GroupSex {
-
-	String name
+class Tryout {
 	
+	String name
+
     static constraints = {
     }
 	

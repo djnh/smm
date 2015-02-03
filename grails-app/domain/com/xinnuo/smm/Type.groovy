@@ -1,13 +1,13 @@
 package com.xinnuo.smm
 
-class GroupSex {
-
-	String name
+class Type {
 	
+	String name
+
     static constraints = {
     }
 	
 	String toString() {
-		"$name"
-	}
+        "$name"
+    }
 }
