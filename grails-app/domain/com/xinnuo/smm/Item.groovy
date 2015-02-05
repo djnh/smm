@@ -9,7 +9,7 @@ class Item {
 	Integer groupsSimultaneity
 	Integer orgMax
 	String remark
-	
+
 	static hasMany = [raceGroups: RaceGroup]
 	static belongsTo = [Type, Tryout]
 

@@ -1,12 +1,12 @@
 import com.xinnuo.smm.Game
 import com.xinnuo.smm.GroupSex
+import com.xinnuo.smm.Item
 import com.xinnuo.smm.RaceGroup
 import com.xinnuo.smm.SportsMeeting
 import com.xinnuo.smm.SystemRole
 import com.xinnuo.smm.SystemUser
 import com.xinnuo.smm.Tryout
 import com.xinnuo.smm.Type
-
 
 class BootStrap {
 
@@ -89,7 +89,78 @@ class BootStrap {
 		预决赛.save()
 		def 预复决赛 = new Tryout(name:"预复决赛")
 		预复决赛.save()
-    }
+		
+		def a100米 = new Item(type: 短跑, name: "100米", tryout: 预决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工青年男子组,教工青年女子组,教工中年男子组,教工中年女子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		a100米.save()
+		def a100米定向 = new Item(type: 短跑, name: "100米定向", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:4, remark: "姓名处填写领导姓名", raceGroups:[教工大众组])
+		a100米定向.save()
+		def a10人11足 = new Item(type: 接力, name: "10人11足", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		a10人11足.save()
+		def a1500米 = new Item(type: 长跑, name: "1500米", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组,学生本科女子组])
+		a1500米.save()
+		def a200米 = new Item(type: 短跑, name: "200米", tryout: 预决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:2, raceGroups:[教工青年男子组,教工青年女子组,学生本科男子组,学生本科女子组,研究生男子组])
+		a200米.save()
+		def a3000米 = new Item(type: 长跑, name: "3000米", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组])
+		a3000米.save()
+		def a3000米障碍 = new Item(type: 长跑, name: "3000米障碍", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组])
+		a3000米障碍.save()
+		def a4x100米接力 = new Item(type: 接力, name: "4×100米接力", tryout: 决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:4, raceGroups:[教工青年男子组,教工青年女子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		a4x100米接力.save()
+		def a4x400米接力 = new Item(type: 接力, name: "4×400米接力", tryout: 决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:4, raceGroups:[学生本科男子组,学生本科女子组])
+		a4x400米接力.save()
+		def a400米 = new Item(type: 短跑, name: "400米", tryout: 决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组,学生本科女子组])
+		a400米.save()
+		def a60米抱球跑 = new Item(type: 短跑, name: "60米抱球跑", tryout: 决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:2, raceGroups:[教工益壮男子组,教工益壮女子组])
+		a60米抱球跑.save()
+		def a8x40米蛇形接力 = new Item(type: 接力, name: "8×40米蛇形接力", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		a8x40米蛇形接力.save()
+		def a800米 = new Item(type: 长跑, name: "800米", tryout: 决赛, groupMemberMax: 8, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工青年男子组,教工中年男子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		a800米.save()
+		def 抱球障碍接力 = new Item(type: 接力, name: "抱球障碍接力", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		抱球障碍接力.save()
+		def 背向向后传球 = new Item(type: 接力, name: "背向向后传球", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		背向向后传球.save()
+		def 标枪 = new Item(type: 远度, name: "标枪", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工青年男子组,教工青年女子组,教工中年男子组,学生本科男子组,学生本科女子组,研究生男子组])
+		标枪.save()
+		def 传运接力 = new Item(type: 接力, name: "传运接力", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		传运接力.save()
+		def 疾风31 = new Item(type: 短跑, name: "疾风31", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1,remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		疾风31.save()
+		def 胯下传球 = new Item(type: 接力, name: "胯下传球", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		胯下传球.save()
+		def 拉绳赛跑 = new Item(type: 接力, name: "拉绳赛跑", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		拉绳赛跑.save()
+		def 陆地冰壶 = new Item(type: 接力, name: "陆地冰壶", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[教工大众组])
+		陆地冰壶.save()
+		def 爬低绳 = new Item(type: 接力, name: "爬低绳", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		爬低绳.save()
+		def 千米徒步健身走 = new Item(type: 长跑, name: "千米徒步健身走", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工益壮男子组, 教工益壮女子组])
+		千米徒步健身走.save()
+		def 铅球 = new Item(type: 远度, name: "铅球", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工青年男子组,教工青年女子组,教工益壮男子组, 教工益壮女子组,教工中年男子组,教工中年女子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		铅球.save()
+		def 赛龙舟 = new Item(type: 接力, name: "赛龙舟", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		赛龙舟.save()
+		def 三级跳远 = new Item(type: 远度, name: "三级跳远", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组])
+		三级跳远.save()
+		def 双手头上拔河 = new Item(type: 接力, name: "双手头上拔河", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		双手头上拔河.save()
+		def 踢球进圈 = new Item(type: 接力, name: "踢球进圈", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		踢球进圈.save()
+		def 跳背接力 = new Item(type: 接力, name: "跳背接力", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		跳背接力.save()
+		def 跳长绳比快 = new Item(type: 接力, name: "跳长绳比快", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		跳长绳比快.save()
+		def 跳高 = new Item(type: 高度, name: "跳高", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[教工青年男子组,教工青年女子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		跳高.save()
+		def 跳远 = new Item(type: 远度, name: "跳远", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:0, raceGroups:[教工青年男子组,教工青年女子组,教工中年男子组,教工中年女子组,学生本科男子组,学生本科女子组,研究生男子组,研究生女子组])
+		跳远.save()
+		def 铁饼 = new Item(type: 远度, name: "铁饼", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:2, raceGroups:[学生本科男子组,学生本科女子组])
+		铁饼.save()
+		def 圆圈接力 = new Item(type: 接力, name: "圆圈接力", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:1, remark: "姓名处填写单位表编号+项目名称", raceGroups:[学生大众组])
+		圆圈接力.save()
+		def 自行车慢骑 = new Item(type: 短跑, name: "自行车慢骑", tryout: 决赛, groupMemberMax: 0, groupsSimultaneity: 1, orgMax:4, remark: "姓名处填写领导姓名", raceGroups:[教工大众组])
+		自行车慢骑.save()
+	}
     def destroy = {
     }
 }

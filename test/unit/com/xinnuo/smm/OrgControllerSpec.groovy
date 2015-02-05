@@ -5,9 +5,9 @@ package com.xinnuo.smm
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(ItemController)
-@Mock(Item)
-class ItemControllerSpec extends Specification {
+@TestFor(OrgController)
+@Mock(Org)
+class OrgControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class ItemControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.itemInstanceList
-            model.itemInstanceCount == 0
+            !model.orgInstanceList
+            model.orgInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class ItemControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.itemInstance!= null
+            model.orgInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class ItemControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def item = new Item()
-            item.validate()
-            controller.save(item)
+            def org = new Org()
+            org.validate()
+            controller.save(org)
 
         then:"The create view is rendered again with the correct model"
-            model.itemInstance!= null
+            model.orgInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            item = new Item(params)
+            org = new Org(params)
 
-            controller.save(item)
+            controller.save(org)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/item/show/1'
+            response.redirectedUrl == '/org/show/1'
             controller.flash.message != null
-            Item.count() == 1
+            Org.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class ItemControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def item = new Item(params)
-            controller.show(item)
+            def org = new Org(params)
+            controller.show(org)
 
         then:"A model is populated containing the domain instance"
-            model.itemInstance == item
+            model.orgInstance == org
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class ItemControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def item = new Item(params)
-            controller.edit(item)
+            def org = new Org(params)
+            controller.edit(org)
 
         then:"A model is populated containing the domain instance"
-            model.itemInstance == item
+            model.orgInstance == org
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class ItemControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/item/index'
+            response.redirectedUrl == '/org/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def item = new Item()
-            item.validate()
-            controller.update(item)
+            def org = new Org()
+            org.validate()
+            controller.update(org)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.itemInstance == item
+            model.orgInstance == org
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            item = new Item(params).save(flush: true)
-            controller.update(item)
+            org = new Org(params).save(flush: true)
+            controller.update(org)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/item/show/$item.id"
+            response.redirectedUrl == "/org/show/$org.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class ItemControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/item/index'
+            response.redirectedUrl == '/org/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def item = new Item(params).save(flush: true)
+            def org = new Org(params).save(flush: true)
 
         then:"It exists"
-            Item.count() == 1
+            Org.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(item)
+            controller.delete(org)
 
         then:"The instance is deleted"
-            Item.count() == 0
-            response.redirectedUrl == '/item/index'
+            Org.count() == 0
+            response.redirectedUrl == '/org/index'
             flash.message != null
     }
 }

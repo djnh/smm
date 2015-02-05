@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Free HTML5 Bootstrap Admin Template</title>
+<title><g:layoutTitle default="Free HTML5 Bootstrap Admin Template"/></title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description"
 	content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
@@ -39,6 +39,7 @@
 <link rel="shortcut icon" href="${request.contextPath}/charisma/img/favicon.ico">
 <jqui:resources />
 <script src="${request.contextPath}/charisma/js/jquery.ui.datepicker-zh-CN.js"></script>
+<g:layoutHead/>
 </head>
 
 <body>
