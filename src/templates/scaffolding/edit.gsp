@@ -15,9 +15,6 @@
 		        <li>
 		            <g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link>
 		        </li>
-		        <li>
-		            <g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
-		        </li>
 		    </ul>
 		</div>
 		<div id="edit-${domainClass.propertyName}" class="row">
@@ -41,6 +38,7 @@
 		                    <g:hiddenField name="version" value="\${${propertyName}?.version}" />
 		                    <g:render template="form"/>
 		                    <g:actionSubmit class="btn btn-primary" action="update" value="\${message(code: 'default.button.update.label', default: 'Update')}" />
+		                    <g:link class="btn btn-primary" action="index">\${message(code: 'default.button.return.label', default: 'Return')}</g:link>
 		                </g:form>
 		            </div>
 		        </div>

@@ -36,6 +36,7 @@
 						<g:form role="form" url="[resource:${propertyName}, action:'save']" <%= multiPart ? ' enctype="multipart/form-data"' : '' %>>
 		                    <g:render template="form"/>
 		                    <g:submitButton name="create" class="btn btn-primary" value="\${message(code: 'default.button.create.label', default: 'Create')}" />
+		                	<g:link class="btn btn-primary" action="index">\${message(code: 'default.button.return.label', default: 'Return')}</g:link>
 		                </g:form>
 		            </div>
 		        </div>

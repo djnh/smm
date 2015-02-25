@@ -7,12 +7,12 @@ $(document).ready(function()
 		var password = $("#password").val();
 		var repassword = $("#repassword").val();
 		if(password != repassword){
-			alert("两次输入的密码不符");
+			alert("高水平组和低水平组不能是同一组");
 			return false;
 		}
 	});
 	
-})
+});
 </script>
 <div class="form-group">
 <div class="input-group ${hasErrors(bean: systemUserInstance, field: 'loginName', 'error')} required">

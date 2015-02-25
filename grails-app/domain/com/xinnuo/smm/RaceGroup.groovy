@@ -14,4 +14,8 @@ class RaceGroup {
 		name maxSize: 50 , sortable: false
 		remark nullable: true
 	}
+	
+	String toString(){
+		"${name}"
+	}
 }

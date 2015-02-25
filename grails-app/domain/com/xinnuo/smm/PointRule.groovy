@@ -1,9 +1,10 @@
 package com.xinnuo.smm
 
-class RuleTemplate {
-	
-	String name
-	String remark
+class PointRule {
+
+    Integer lessThan
+	Integer moreThan
+	Integer getCount
 	Integer firstPoints
 	Integer secondPoints
 	Integer thirdPoints
@@ -12,15 +13,17 @@ class RuleTemplate {
 	Integer sixthPoints
 	Integer seventhPoints
 	Integer eighthPoints
-	Integer allRoundPointsTimes
-	
-	static hasMany = [pointRules:PointRule]
+	RuleTemplate ruleTemplate
+
+	static belongsTo = [RuleTemplate]
 
 	static mapping = {
 	}
-
+	
 	static constraints = {
-		name maxSize: 50
+		lessThan()
+		moreThan()
+		getCount()
 		firstPoints()
 		secondPoints()
 		thirdPoints()
@@ -29,7 +32,6 @@ class RuleTemplate {
 		sixthPoints()
 		seventhPoints()
 		eighthPoints()
-		allRoundPointsTimes()
-		remark nullable: true
+		ruleTemplate(nullable: true)
 	}
 }

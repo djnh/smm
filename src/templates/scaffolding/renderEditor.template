@@ -48,7 +48,7 @@
 
     private renderStringEditor(domainClass, property) {
         if (!cp) {
-            return "<g:textField name=\"${property.name}\" placeholder=\"\${message(code: '${domainClass.propertyName}.{property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}?.${property.name}}\" class=\"form-control\" />"
+            return "<g:textField name=\"${property.name}\" placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}?.${property.name}}\" class=\"form-control\" />"
         } else {
 			def sb = new StringBuilder("")
             if ("textarea" == cp.widget || (cp.maxSize > 250 && !cp.password && !cp.inList)) {
@@ -156,9 +156,9 @@
     private renderNumberEditor(domainClass, property) {
         if (!cp) {
             if (property.type == Byte) {
-                return "<g:select name=\"${property.name}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
+                return "<g:select name=\"${property.name}\" placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}?.${property.name}}\" from=\"\${-128..127}\" class=\"range\" value=\"\${fieldValue(bean: ${domainInstance}, field: '${property.name}')}\" />"
             } else {
-                return "<g:field type=\"number\" name=\"${property.name}\" value=\"\${${domainInstance}.${property.name}}\" class=\"form-control\" />"
+                return "<g:field type=\"number\" name=\"${property.name}\" placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}.${property.name}}\" class=\"form-control\" />"
             }
         } else {
 	        def sb = new StringBuilder()
@@ -180,7 +180,7 @@
 				sb << '/>'
             } else {
 				sb << '<g:field'
-				sb << ' name="' << property.name << '"'
+				sb << ' name="' << property.name << '"' << "placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\""
 				if (property.type in [float, double, Float, Double, BigDecimal]) {
 					sb << ' value="${' << "fieldValue(bean: ${domainInstance}, field: '${property.name}')" << '}"'
 				} else {
@@ -214,12 +214,12 @@
     private renderDateEditor(domainClass, property) {
         def precision = (property.type == Date || property.type == java.sql.Date || property.type == Calendar) ? "day" : "minute";
         if (!cp) {
-            return "<g:datePicker name=\"${property.name}\" precision=\"${precision}\" value=\"\${${domainInstance}?.${property.name}}\" />"
+            return "<g:textField id=\"${property.name}\" name=\"${property.name}\" placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}?.${property.name}}\" value=\"\${${domainInstance}?.${property.name}}\" class=\"form-control\"/><script>\$(\"#${property.name}\").datepicker({dateFormat: 'yy-mm-dd'})</script>"
         } else {
             if (!cp.editable) {
                 return "\${${domainInstance}?.${property.name}?.toString()}"
             } else {
-                def sb = new StringBuilder("<g:datePicker name=\"${property.name}\" ")
+                def sb = new StringBuilder("<g:textField id=\"${property.name}\" name=\"${property.name}\" ")
                 if (cp.format) sb << "format=\"${cp.format}\" "
                 if (cp.widget) sb << "widget=\"${cp.widget}\" "
                 cp.attributes.each { k, v ->
@@ -228,8 +228,9 @@
                 if (!cp.attributes.precision) {
                     sb << "precision=\"${precision}\" "
                 }
-                sb << " value=\"\${${domainInstance}?.${property.name}}\" ${renderNoSelection(property)} />"
-
+                sb << " placeholder=\"\${message(code: '${domainClass.propertyName}.${property.name}.label', default: '${property.naturalName}')}\" value=\"\${${domainInstance}?.${property.name}}\" ${renderNoSelection(property)} class=\"form-control\" />"
+                sb << "<script>\$(\"#${property.name}\").datepicker({dateFormat: 'yy-mm-dd'})</script>"
+                
                 return sb.toString()
             }
         }

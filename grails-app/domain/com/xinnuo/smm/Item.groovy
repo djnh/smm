@@ -25,4 +25,8 @@ class Item {
 		orgMax()
 		remark nullable: true
 	}
+	
+	String toString() {
+		"$name"
+	}
 }

@@ -14,11 +14,14 @@ class SportsMeeting {
 	Date endTime
 	String heldLocation
 	String remark
-	Integer pluralismMax
-	Integer singleItemMin
+	Integer pluralismMax = 1
+	Integer singleItemMin = 0
 	String signUpRemark
 	Boolean activate = true
 	Boolean startSignUp = true
+	RuleTemplate ruleTemplate
+	
+	static belongsTo = [RuleTemplate]
 
 	static mapping = {
 	}
