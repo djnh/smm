@@ -90,6 +90,7 @@
 		</div>
 	</div>
 
+<!-- 
 	<div class="form-group">
 		<div class="input-group ${hasErrors(bean: recordInstance, field: 'former', 'error')} ">
 			<span class="input-group-addon">
@@ -133,4 +134,4 @@
 
 		</div>
 	</div>
-
+ -->

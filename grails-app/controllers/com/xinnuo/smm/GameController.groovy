@@ -14,7 +14,7 @@ class GameController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 100, 100)
         respond Game.list(params), model:[gameInstanceCount: Game.count()]
     }
 
@@ -44,13 +44,7 @@ class GameController {
 
         gameInstance.save flush:true
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'game.label', default: 'Game'), gameInstance.id])
-                redirect gameInstance
-            }
-            '*' { respond gameInstance, [status: CREATED] }
-        }
+        render "true"
     }
 
     def edit(Game gameInstance) {
