@@ -6,6 +6,7 @@ class Athlete {
 	Integer sex
 	String number
 	Org org
+	String test
 
 	static hasMany = [results: Result]
 	static belongsTo = [Org]
