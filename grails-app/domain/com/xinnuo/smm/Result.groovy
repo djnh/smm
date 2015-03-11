@@ -13,8 +13,10 @@ class Result {
 	BreakRuleType breakType
 	BreakRuleGrade breakGrade
 	Athlete athlete
+	Item item
+	RaceGroup raceGroup
 
-	static belongsTo = [Athlete, Game]
+	static belongsTo = [Athlete, Item, RaceGroup, Org]
 
 	static mapping = {
 	}

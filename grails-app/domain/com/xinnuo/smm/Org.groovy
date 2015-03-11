@@ -22,4 +22,7 @@ class Org {
 		loginName nullable: true, maxSize: 50
 		password nullable: true, maxSize: 50, password:true
 	}
+	String toString() {
+		"$name"
+	}
 }

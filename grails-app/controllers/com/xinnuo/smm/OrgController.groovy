@@ -30,10 +30,15 @@ class OrgController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'org.label', default: 'Org'), orgInstance.id])
-                redirect (action:'index')
+                redirect (action:'signup')
             }
             '*'{ respond orgInstance, [status: OK] }
         }
     }
+	
+	def signup(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+        respond Org.list(params), model:[orgInstanceCount: Org.count()]
+	}
 
 }
