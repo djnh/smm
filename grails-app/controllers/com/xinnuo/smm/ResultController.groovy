@@ -13,7 +13,10 @@ class ResultController {
 
     def index(Integer max) {
 		if(params.athlete){
-			session.currentAthlete = Athlete.get(params.athlete);
+			def athlete = Athlete.get(params.athlete);
+//			assert null != athlete.org
+//			assert null != athlete.sex
+			session.currentAthlete = athlete;
 		}
 		assert null!=session.currentAthlete
         params.max = Math.min(max ?: 10, 100)

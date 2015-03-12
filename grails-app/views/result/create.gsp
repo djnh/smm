@@ -20,7 +20,7 @@
 		    <div class="box col-md-12">
 		        <div class="box-inner">
 		            <div data-original-title="" class="box-header well">
-		                <h2><i class="glyphicon glyphicon-plus"></i> <g:message code="default.create.label" args="[entityName]" /></h2>
+		                <h2>新项目报名</h2>
 		            </div>
 		            <div class="box-content">
 		            	<g:if test="${flash.message}">

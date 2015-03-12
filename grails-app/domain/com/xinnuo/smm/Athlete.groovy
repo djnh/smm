@@ -10,6 +10,8 @@ class Athlete {
 	static belongsTo = [Org]
 
 	static mapping = {
+		sex lazy: false
+		org lazy: false
 	}
 
 	static constraints = {

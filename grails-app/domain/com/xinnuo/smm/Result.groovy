@@ -28,5 +28,6 @@ class Result {
 		points nullable: true
 		breakType nullable: true
 		breakGrade nullable: true
+		athlete nullable: true
 	}
 }
