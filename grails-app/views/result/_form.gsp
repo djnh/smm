@@ -4,7 +4,7 @@
 			<span class="input-group-addon">
 				<g:message code="result.athlete.label" default="Athlete" />
 			</span>
-			<input name="athlete" value="${session.currentAthlete}" class="form-control" readonly="readonly" />
+			<input value="${session.currentAthlete}" class="form-control" readonly="readonly" />
 		</div>
 	</div>
 	
@@ -13,7 +13,7 @@
 			<span class="input-group-addon">
 				<g:message code="result.org.label" default="Org" />
 			</span>
-			<input name="org" value="${session.currentAthlete?.org}" class="form-control" readonly="readonly" />
+			<input value="${session.currentAthlete?.org}" class="form-control" readonly="readonly" />
 		</div>
 	</div>
 	

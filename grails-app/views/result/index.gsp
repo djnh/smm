@@ -14,7 +14,7 @@
 		            <a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a>
 		        </li>
 		        <li>
-		            <g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link>
+		            <g:link class="list" controller="athlete" action="index">已报名运动员列表</g:link>
 		        </li>
 		    </ul>
 		</div>
@@ -25,11 +25,11 @@
             	</g:if>
 	            <div class="box-inner">
 	                <div data-original-title="" class="box-header well">
-	                    <h2><g:message code="default.list.label" args="[entityName]" /></h2>
+	                    <h2>已报名的比赛</h2>
 	                </div>
 	                <div class="box-content">
 	                	<p class="btn-group">
-		                    <g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+		                    <g:link class="btn btn-primary" action="create">项目报名</g:link>
 		                </p>
 		                <p>
 		                	运动员: ${session.currentAthlete}
@@ -39,12 +39,8 @@
 	                        <tr>
 	                        	<th>${message(code: 'result.id.label', default: 'Id')}</th>
 	                            
-									<g:sortableColumn property="signUpResult" title="${message(code: 'result.signUpResult.label', default: 'Sign Up Result')}" />
-								
-									<g:sortableColumn property="result" title="${message(code: 'result.result.label', default: 'Result')}" />
-								
-									<g:sortableColumn property="remark" title="${message(code: 'result.remark.label', default: 'Remark')}" />
-								
+								<th>${message(code: 'result.item.label', default: 'Item')}</th>
+								<th>${message(code: 'result.raceGroup.label', default: 'Race Group')}</th>
 								<th>${message(code: 'default.actions.label', default: 'Actions')}</th>
 	                        </tr>
 	                        </thead>
@@ -53,11 +49,9 @@
 								<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 								<td>${fieldValue(bean: resultInstance, field: "id")}</td>
 								
-									<td>${fieldValue(bean: resultInstance, field: "signUpResult")}</td>
+									<td>${fieldValue(bean: resultInstance, field: "item")}</td>
 								
-									<td>${fieldValue(bean: resultInstance, field: "result")}</td>
-								
-									<td>${fieldValue(bean: resultInstance, field: "remark")}</td>
+									<td>${fieldValue(bean: resultInstance, field: "raceGroup")}</td>
 								
 								<td>
 									<g:form role="form" url="[resource:resultInstance, action:'delete']" method="DELETE">

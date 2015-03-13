@@ -43,6 +43,8 @@ class ResultController {
             respond resultInstance.errors, view:'create'
             return
         }
+		
+		resultInstance.athlete = session.currentAthlete
 
         resultInstance.save flush:true
 

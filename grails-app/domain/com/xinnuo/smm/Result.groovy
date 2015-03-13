@@ -29,5 +29,9 @@ class Result {
 		breakType nullable: true
 		breakGrade nullable: true
 		athlete nullable: true
+		groupNumber nullable:true
+		checkIn nullable:true
+		laneNumber nullable:true
+		place nullable:true
 	}
 }
