@@ -8,7 +8,6 @@ class RecordController {
 	
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		print params
 		def query = Record.where {
 			if(params.item){
 				item.id==params.item.id

@@ -1,12 +1,14 @@
 package com.xinnuo.smm
 
+import java.sql.Time
+
 class Result {
 
-	String signUpResult
+	Time signUpResult
 	Integer groupNumber
 	Integer laneNumber
 	Integer checkIn
-	String result
+	Time result
 	Integer place
 	String remark
 	BigDecimal points

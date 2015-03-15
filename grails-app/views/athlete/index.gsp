@@ -31,16 +31,32 @@
 	                	<p class="btn-group">
 		                    <g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
 		                </p>
+		                <p>
+		                	<g:form role="form" url="[resource:athleteInstance, action:'index']">
+			                	<label><g:message code="athlete.org.label" default="Org" />
+								<g:select id="org" name="org.id" from="${com.xinnuo.smm.Org.list()}" optionKey="id" optionValue="name" required="" value="${params?.org?.id}" noSelection="['': '全部']" class="many-to-one" />
+			                	</label>
+								<label><g:message code="record.item.label" default="Item" />
+								<g:select id="item" name="item.id" from="${com.xinnuo.smm.Item.list()}" optionKey="id" optionValue="name" required="" value="${params?.item?.id}" noSelection="['': '全部']" class="many-to-one" />
+			                	</label>
+			                	<label><g:message code="record.raceGroup.label" default="Race Group" />
+								<g:select id="raceGroup" name="raceGroup.id" from="${com.xinnuo.smm.RaceGroup.list()}" optionKey="id" optionValue="name" required="" value="${params?.raceGroup?.id}" noSelection="['': '全部']" class="many-to-one" />
+			                	</label>
+							    <g:actionSubmit class="btn btn-primary" action="index" value="查询" />
+						    </g:form>
+		                </p>
 	                    <table class="table table-striped table-bordered responsive">
 	                        <thead>
 	                        <tr>
 	                        	<th>${message(code: 'athlete.id.label', default: 'Id')}</th>
+	                        	
+	                        	<th><g:message code="athlete.number.label" default="Number" /></th>
 	                            
 									<th><g:message code="athlete.org.label" default="Org" /></th>
 								
-									<g:sortableColumn property="name" title="${message(code: 'athlete.name.label', default: 'Name')}" />
+									<th><g:message code="athlete.name.label" default="Name" /></th>
 								
-									<th><g:message code="athlete.sex.label" default="Sex" /></th>
+									<th>参加比赛</th>
 								
 								<th>${message(code: 'default.actions.label', default: 'Actions')}</th>
 	                        </tr>
@@ -50,11 +66,17 @@
 								<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 								<td>${fieldValue(bean: athleteInstance, field: "id")}</td>
 								
+								<td>${fieldValue(bean: athleteInstance, field: "number")}</td>
+								
 									<td>${fieldValue(bean: athleteInstance, field: "org")}</td>
 								
 									<td>${fieldValue(bean: athleteInstance, field: "name")}</td>
 								
-									<td>${fieldValue(bean: athleteInstance, field: "sex")}</td>
+									<td>
+										<g:each in="${athleteInstance.results}" var="resultInstance">
+											(${resultInstance.item})(${resultInstance.raceGroup})<br />
+										</g:each>
+									</td>
 								
 								<td>
 									<g:form role="form" url="[resource:athleteInstance, action:'delete']" method="DELETE">

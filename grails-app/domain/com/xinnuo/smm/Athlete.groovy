@@ -8,6 +8,8 @@ class Athlete {
 	Org org
 
 	static belongsTo = [Org]
+	
+	static hasMany = [results:Result]
 
 	static mapping = {
 		sex lazy: false
