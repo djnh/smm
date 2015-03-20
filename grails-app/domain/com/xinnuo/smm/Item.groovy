@@ -6,11 +6,11 @@ class Item {
 	Type type
 	Tryout tryout
 	Integer groupMemberMax
-	Integer groupsSimultaneity
+	Integer groupsSimultaneity //可同时进行小组数
 	Integer orgMax
 	String remark
 
-	static hasMany = [raceGroups: RaceGroup]
+	static hasMany = [raceGroups: RaceGroup, results:Result]
 	static belongsTo = [Type, Tryout]
 
 	static mapping = {

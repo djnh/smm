@@ -139,6 +139,7 @@
 	                            <a href="#"><i class="glyphicon glyphicon-plus"></i><span> 自动编排</span></a>
 	                            <ul class="nav nav-pills nav-stacked">
 	                                <li><g:link controller="produceNumber"> 生成运动员编号</g:link></li>
+	                                <li><g:link controller="groupingItems"> 分组分道</g:link></li>
 	                            </ul>
 	                        </li>
 					</div>
