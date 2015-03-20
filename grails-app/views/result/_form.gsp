@@ -1,4 +1,9 @@
 <%@ page import="com.xinnuo.smm.Result" %>
+<script>
+$(function(){
+	$("#signUpResult").timepicker({timeFormat:'mm:ss.c',stepMicrosec:10});
+});
+</script>
 	<div class="form-group">
 		<div class="input-group">
 			<span class="input-group-addon">
@@ -44,10 +49,9 @@
 		<div class="input-group ${hasErrors(bean: resultInstance, field: 'signUpResult', 'error')} ">
 			<span class="input-group-addon">
 				<g:message code="result.signUpResult.label" default="Sign Up Result" />
-				
 			</span>
 			<g:textField name="signUpResult" placeholder="${message(code:'result.signUpResult.label', default:'Sign Up Result')}" maxlength="50" value="${resultInstance?.signUpResult}" class="form-control"/>
-
+		
 		</div>
 	</div>
 

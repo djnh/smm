@@ -4,11 +4,11 @@ import java.sql.Time
 
 class Result {
 
-	Time signUpResult
+	String signUpResult
 	Integer groupNumber
 	Integer laneNumber
 	Integer checkIn
-	Time result
+	String result
 	Integer place
 	String remark
 	BigDecimal points

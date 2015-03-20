@@ -30,7 +30,7 @@ class OrgController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'org.label', default: 'Org'), orgInstance.id])
-                redirect (action:'signup')
+                redirect (action:'index')
             }
             '*'{ respond orgInstance, [status: OK] }
         }
