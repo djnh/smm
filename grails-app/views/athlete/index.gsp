@@ -28,23 +28,23 @@
 	                    <h2><g:message code="default.list.label" args="[entityName]" /></h2>
 	                </div>
 	                <div class="box-content">
-	                	<p class="btn-group">
-		                    <g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
-		                </p>
-		                <p>
-		                	<g:form role="form" url="[resource:athleteInstance, action:'index']">
-			                	<label><g:message code="athlete.org.label" default="Org" />
-								<g:select id="org" name="org.id" from="${com.xinnuo.smm.Org.list()}" optionKey="id" optionValue="name" required="" value="${params?.org?.id}" noSelection="['': '全部']" class="many-to-one" />
-			                	</label>
-								<label><g:message code="record.item.label" default="Item" />
-								<g:select id="item" name="item.id" from="${com.xinnuo.smm.Item.list()}" optionKey="id" optionValue="name" required="" value="${params?.item?.id}" noSelection="['': '全部']" class="many-to-one" />
-			                	</label>
-			                	<label><g:message code="record.raceGroup.label" default="Race Group" />
-								<g:select id="raceGroup" name="raceGroup.id" from="${com.xinnuo.smm.RaceGroup.list()}" optionKey="id" optionValue="name" required="" value="${params?.raceGroup?.id}" noSelection="['': '全部']" class="many-to-one" />
-			                	</label>
-							    <g:actionSubmit class="btn btn-primary" action="index" value="查询" />
-						    </g:form>
-		                </p>
+	                	
+	                		<div class="row">
+								<div class="col-md-4">
+									<g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+								</div>
+								<div class="col-md-8">
+									<g:form role="form" url="[resource:athleteInstance, action:'index']">
+									<p class="pull-right">
+										<g:select id="org" name="org.id" from="${com.xinnuo.smm.Org.list()}" optionKey="id" optionValue="name" value="${params?.org?.id}" noSelection="['': '单位']" data-rel="chosen" />
+										<g:select id="item" name="item.id" from="${com.xinnuo.smm.Item.list()}" optionKey="id" optionValue="name" value="${params?.item?.id}" noSelection="['': '项目']" data-rel="chosen" />
+										<g:select id="raceGroup" name="raceGroup.id" from="${com.xinnuo.smm.RaceGroup.list()}" optionKey="id" optionValue="name" value="${params?.raceGroup?.id}" noSelection="['': '组别']" data-rel="chosen" />
+										<g:actionSubmit class="btn btn-primary btn-sm" action="index" value="查询" />
+									</p>
+									</g:form>
+								</div>
+							</div>
+						
 	                    <table class="table table-striped table-bordered responsive">
 	                        <thead>
 	                        <tr>
