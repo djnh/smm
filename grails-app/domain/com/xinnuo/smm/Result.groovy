@@ -18,7 +18,7 @@ class Result {
 	Item item
 	RaceGroup raceGroup
 
-	static belongsTo = [Athlete, Item, RaceGroup, Org]
+	static belongsTo = [Athlete, Item, RaceGroup]
 
 	static mapping = {
 	}

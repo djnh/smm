@@ -14,6 +14,7 @@ class Item {
 	static belongsTo = [Type, Tryout]
 
 	static mapping = {
+		raceGroups lazy: false
 	}
 
 	static constraints = {
