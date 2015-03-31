@@ -1,2 +1,6 @@
 /target
 /target-eclipse
+/.classpath
+/.settings
+/.project
+/devDb.trace.db

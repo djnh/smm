@@ -93,7 +93,7 @@
 								
 									<td>
 										<g:form role="form" url="[resource:itemInstance, action:'delete']" method="DELETE">
-											<g:link class="btn btn-primary" action="view">查看分组情况</g:link>
+											<g:link class="btn btn-primary" action="view" id="${itemInstance.id}">查看分组情况</g:link>
 							        		<g:link class="btn btn-info" action="reset" id="${itemInstance.id}" onclick="return confirm('所有现存分组信息将丢失，确实要重新分组吗?');">重新分组</g:link>
 							        	</g:form>
 							        </td>

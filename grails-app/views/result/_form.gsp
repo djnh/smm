@@ -1,7 +1,7 @@
 <%@ page import="com.xinnuo.smm.Result" %>
 <script>
 $(function(){
-	$("#signUpResult").timepicker({timeFormat:'mm:ss.c',stepMicrosec:10});
+	$("#signUpResult").timepicker({timeFormat:'mm:ss.c',stepMicrosec:10,showButtonPanel:false});
 });
 </script>
 	<div class="form-group">
